@@ -4,7 +4,7 @@ import org.newdawn.slick.AppGameContainer;
 
 import dflolp.*;
 
-public class Main
+public class Client
 {
 	public static void main(String[] args)
 	{
@@ -13,6 +13,8 @@ public class Main
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new Game("Die From Lack Of Lead Poisoning"));
 			appgc.setDisplayMode(800, 600, false);
+			appgc.setShowFPS(false);
+			appgc.setMaximumLogicUpdateInterval(60);
 			appgc.start();
 		}
 		catch (Exception e)

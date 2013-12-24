@@ -24,6 +24,8 @@ public class Game extends BasicGame
 		handler.add("resources" + sep + "textures" + sep + "Geek.png");
 		player = new Player();
 		player.init(handler.get(0));
+		//System.out.println(Common.q1 + Common.q2 + Common.q3);
+		ScriptManager.callFromFile("resources/scripts/getstuff.py");
 	}
 
 	@Override
@@ -36,19 +38,19 @@ public class Game extends BasicGame
 		}
 		if (gc.getInput().isKeyDown(Keyboard.KEY_W))
 		{
-			player.moveUp(0.1f);
+			player.moveUp(0.25f);
 		}
 		if (gc.getInput().isKeyDown(Keyboard.KEY_S))
 		{
-			player.moveDown(0.1f);
+			player.moveDown(0.25f);
 		}
 		if (gc.getInput().isKeyDown(Keyboard.KEY_A))
 		{
-			player.moveLeft(0.1f);
+			player.moveLeft(0.25f);
 		}
 		if (gc.getInput().isKeyDown(Keyboard.KEY_D))
 		{
-			player.moveRight(0.1f);
+			player.moveRight(0.25f);
 		}
 	}
 
