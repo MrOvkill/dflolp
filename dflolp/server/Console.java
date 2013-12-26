@@ -29,7 +29,7 @@ public class Console implements Runnable
 			{
 				Common.echo("Console command sent: " + line);
 				String[] args = line.split(" ");
-				if (args[0].equalsIgnoreCase("exit"))
+				if (args[0].equalsIgnoreCase("exit") || args[0].equalsIgnoreCase("quit") || args[0].equalsIgnoreCase("shutdown"))
 				{
 					System.out.println("Exiting!");
 					System.exit(0);

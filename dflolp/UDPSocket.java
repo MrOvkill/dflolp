@@ -14,23 +14,37 @@ public class UDPSocket
 	
 	public UDPSocket()
 	{
+		try {
+			sock = new DatagramSocket();
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		b = new byte[32768];
 	}
+	
+	public UDPSocket(int port)
+	{
+		try {
+			sock = new DatagramSocket(port);
+		} catch (SocketException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		b = new byte[32768];
+	}
+	
 	public void sendTo(String address, String port, String message) throws Exception
 	{
-		sock = new DatagramSocket();
 		b = message.getBytes();
 		packet = new DatagramPacket(b , b.length , InetAddress.getByName(address) , Integer.parseInt(port));
 		sock.send(packet);
 		packet = null;
-		sock.close();
 	}
 	public String[] recvFrom(String port) throws Exception
 	{
-		sock = new DatagramSocket(Integer.parseInt(port));
 		packet = new DatagramPacket(b , b.length);
 		sock.receive(packet);
-		sock.close();
 		return new String[] {packet.getAddress().toString().replace("/", ""), new String(packet.getData(), 0, packet.getLength()), ("" + packet.getPort())};
 	}
 }

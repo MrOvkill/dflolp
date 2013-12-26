@@ -26,6 +26,7 @@ public class Game extends BasicGame
 		player.init(handler.get(0));
 		//System.out.println(Common.q1 + Common.q2 + Common.q3);
 		ScriptManager.callFromFile("resources/scripts/getstuff.py");
+		Sound.playMusic("Starlight");
 	}
 
 	@Override
@@ -34,6 +35,7 @@ public class Game extends BasicGame
 		if (gc.getInput().isKeyDown(Keyboard.KEY_ESCAPE))
 		{
 			gc.exit();
+			Sound.kill();
 			System.exit(0);
 		}
 		if (gc.getInput().isKeyDown(Keyboard.KEY_W))
